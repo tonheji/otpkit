@@ -206,7 +206,7 @@ public final class TripPlannerService: NSObject {
     /// Generates markers for the map based on selected points
     ///
     /// - Returns: MapContent containing the markers
-    public func generateMarkers() -> some MapContent {
+    @MainActor public func generateMarkers() -> some MapContent {
         ForEach(Array(selectedMapPoint.values.compactMap { $0 }), id: \.id) { markerItem in
             Marker(item: markerItem.item)
         }
